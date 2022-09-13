@@ -3,7 +3,7 @@ import { print } from './js/lib.js';
    Complete the below for code reviewers' convenience:
 
    Code repository: https://github.com/Semka094/a-tiny-JS-world
-   Web app: _put project's github pages URL here_
+   Web app: https://semka094.github.io/a-tiny-JS-world/
    */
 
 // ======== OBJECTS DEFINITIONS ========
