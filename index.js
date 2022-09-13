@@ -2,29 +2,101 @@ import { print } from './js/lib.js';
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
 
-   Code repository: _put repo URL here_
+   Code repository: https://github.com/Semka094/a-tiny-JS-world
    Web app: _put project's github pages URL here_
    */
 
 // ======== OBJECTS DEFINITIONS ========
-// Define your objects here
 
+class Inhabitant {
+  constructor({ species, name, gender, }) {
+    this.name = name;
+    this.species = species;
+    this.gender = gender;
+  }
+}
+
+class Human extends Inhabitant {
+  constructor(props) {
+    super(props);
+    
+    this.species = 'human';
+    this.legs = 2;
+    this.hands = 2;
+  }
+}
+
+class Woman extends Human {
+  constructor(props) {
+    super(props);
+    
+    this.gender = 'female';
+  }
+}
+
+class Man extends Human {
+  constructor(props) {
+    super(props);
+    
+    this.gender = 'male';
+  }
+}
+
+class Animal extends Inhabitant {
+  constructor(props) {
+    super(props);
+    
+    this.species = 'animal';
+    this.legs = 4;
+    this.hands = 0;
+  }
+}
+
+class Cat extends Animal {
+  constructor(props) {
+    super(props);
+
+    this.saying = 'myau!';
+  }
+}
+
+class Dog extends Animal {
+  constructor(props) {
+    super(props);
+
+    this.saying = 'woof-woof!!';
+  }
+}
+
+const knopa = new Cat({
+  name: 'Knopa',
+  gender: 'female',
+});
+
+const bubluk = new Dog({
+  name: 'Bubluk',
+  gender: 'male',
+});
+
+const olena = new Woman({
+  name: 'Olena',
+  saying: 'Hello there'
+});
+
+const kostia = new Man({
+  name: 'Kostia',
+  saying: 'Hi, folks!'
+});
+
+const objectToString = (object) => {
+  return Object.entries(object).map(([key, value]) => `${key}: ${value}`).join(', ');
+
+}
 
 // ======== OUTPUT ========
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
+print(objectToString(olena));
+print(objectToString(kostia));
+print(objectToString(bubluk));
+print(objectToString(knopa));
 
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
 
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
